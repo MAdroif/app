@@ -4,7 +4,7 @@ from googleapiclient.discovery import build
 
 # Konfigurasi autentikasi Google Sheets API
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets ']
-SERVICE_ACCOUNT_FILE = '/storage/emulated/0/my-flask-app/service-account-file.json'  # Ganti dengan path file JSON
+SERVICE_ACCOUNT_FILE = json.loads(base64.b64decode(os.getenv("GOOGLE_APPLICATION_CREDENTIALS")))  # Ganti dengan path file JSON
 SPREADSHEET_ID = '1XmQwRT5BqWSFDY_iv9RqlfgvWNOaI7LxyGf3heQPBdI'  # Ganti dengan ID spreadsheet Anda
 
 creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
