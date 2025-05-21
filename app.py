@@ -33,6 +33,11 @@ def write_data(new_row):
 # Inisialisasi Flask
 app = Flask(__name__)
 
+# *** TAMBAHKAN BAGIAN INI ***
+@app.route('/')
+def home():
+    return "Backend Anda berjalan dengan baik!"
+
 # Endpoint untuk membaca data
 @app.route('/read', methods=['GET'])
 def read():
