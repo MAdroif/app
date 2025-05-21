@@ -3,6 +3,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import json
 import os
+from flask_cors import CORS
 
 # Konfigurasi autentikasi Google Sheets API
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets ']
@@ -32,6 +33,7 @@ def write_data(new_row):
 
 # Inisialisasi Flask
 app = Flask(__name__)
+CORS(app)
 
 # *** TAMBAHKAN BAGIAN INI ***
 @app.route('/')
